@@ -69,6 +69,21 @@ namespace myAndroidApp
 
 		#endregion
 
+		public override void OnBackPressed ()
+		{
+			if(this.FragmentStack.Count > 1)
+			{
+				Fragment last = FragmentStack [FragmentStack.Count - 1];
+				FragmentStack.Remove (last);
+				this.FragmentManager.BeginTransaction ()
+					.Replace (Resource.Id.frameLayout1, FragmentStack [FragmentStack.Count - 1])
+					.Commit();
+			}
+			else
+			{
+				base.OnBackPressed ();
+			}
+		}
 	}
 }
 
