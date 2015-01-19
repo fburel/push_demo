@@ -1,0 +1,5 @@
+myAndroidApp.MainActivity;myandroidapp.MainActivity
+myAndroidApp.ListFragment;myandroidapp.ListFragment
+myAndroidApp.ListFragment.PeopleAdapter;myandroidapp.ListFragment_PeopleAdapter
+myAndroidApp.ListFragment.PeopleAdapter.ViewHolder;myandroidapp.ListFragment_PeopleAdapter_ViewHolder
+myAndroidApp.PhotoFragment;myandroidapp.PhotoFragment
