@@ -50,7 +50,7 @@ namespace myAndroidApp
 		/// </summary>
 		public void Pop ()
 		{
-			throw new NotImplementedException ();
+
 		}
 
 		/// <summary>
@@ -59,10 +59,16 @@ namespace myAndroidApp
 		/// <param name="fragment">Fragment.</param>
 		public void Push (Fragment fragment)
 		{
-			throw new NotImplementedException ();
+			this.FragmentStack.Add (fragment);
+
+			this.FragmentManager.BeginTransaction ()
+				.Replace (Resource.Id.frameLayout1, FragmentStack [FragmentStack.Count - 1])
+				.Commit();
+
 		}
 
 		#endregion
+
 	}
 }
 

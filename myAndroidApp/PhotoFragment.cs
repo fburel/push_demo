@@ -16,6 +16,11 @@ namespace myAndroidApp
 {
 	public class PhotoFragment : Fragment
 	{
+		public string People {
+			get;
+			set;
+		}
+
 		public override void OnCreate (Bundle savedInstanceState)
 		{
 			base.OnCreate (savedInstanceState);

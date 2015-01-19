@@ -44,6 +44,18 @@ namespace myAndroidApp
 
 			PeopleListView.Adapter = adapter;
 
+			PeopleListView.ItemClick += (object sender, AdapterView.ItemClickEventArgs e) => 
+			{
+				int position = e.Position;
+				string selected = adapter[position];
+
+				PhotoFragment fr = new PhotoFragment();
+				fr.People = selected;
+
+				IStackNavigation nav = (IStackNavigation) this.Activity;
+				nav.Push(fr);
+			};
+
 			return view;
 		}
 
