@@ -50,7 +50,18 @@ namespace myAndroidApp
 		/// </summary>
 		public void Pop ()
 		{
-
+			if(this.FragmentStack.Count > 1)
+			{
+				Fragment last = FragmentStack [FragmentStack.Count - 1];
+				FragmentStack.Remove (last);
+				this.FragmentManager.BeginTransaction ()
+					.Replace (Resource.Id.frameLayout1, FragmentStack [FragmentStack.Count - 1])
+					.Commit();
+			}
+			else
+			{
+				throw new Exception ("Error during pop");
+			}
 		}
 
 		/// <summary>
@@ -73,11 +84,7 @@ namespace myAndroidApp
 		{
 			if(this.FragmentStack.Count > 1)
 			{
-				Fragment last = FragmentStack [FragmentStack.Count - 1];
-				FragmentStack.Remove (last);
-				this.FragmentManager.BeginTransaction ()
-					.Replace (Resource.Id.frameLayout1, FragmentStack [FragmentStack.Count - 1])
-					.Commit();
+				Pop ();
 			}
 			else
 			{
