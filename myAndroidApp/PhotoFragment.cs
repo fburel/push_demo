@@ -21,11 +21,27 @@ namespace myAndroidApp
 			set;
 		}
 
-		public override void OnCreate (Bundle savedInstanceState)
-		{
-			base.OnCreate (savedInstanceState);
+		public ImageView PhotoView {
+			get;
+			set;
+		}
 
-			// Create your fragment here
+		public override View OnCreateView (LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
+		{
+			base.OnCreateView (inflater, container, savedInstanceState);
+
+			// Association du fragment au XML
+			var view = inflater.Inflate (Resource.Layout.PhotoFragment, null);
+
+			// Binding des composants graphiques
+			this.PhotoView = view.FindViewById<ImageView> (Resource.Id.imageView1);
+
+		
+			if (this.People.Equals ("Filipe")) {
+				this.PhotoView.SetImageResource (Android.Resource.Drawable.ButtonStarBigOn);
+			}
+
+			return view;
 		}
 	}
 }
