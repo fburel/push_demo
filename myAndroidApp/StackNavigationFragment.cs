@@ -21,21 +21,38 @@ namespace myAndroidApp
 			set;
 		}
 
+		public FrameLayout StackNabigationFrameLayout{
+			get;
+			set;
+		}
+			
+
 		public override View OnCreateView (LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
 		{
-			return base.OnCreateView (inflater, container, savedInstanceState);
+			base.OnCreateView (inflater, container, savedInstanceState);
+
+			var view = inflater.Inflate (Resource.Layout.StackNavigationFragment, null);
+			StackNabigationFrameLayout = view.FindViewById<FrameLayout> (Resource.Id.frameLayout1);
+
+			if (FragmentStack == null) {
+				FragmentStack = new List<Fragment> ();
+				FragmentStack.Add (new ListFragment ());
+				PopToRoot ();
+			}
 
 
-			// inflate layout...
-
-			PopToRoot ();
+			return view;
 		}
 
 
 
 		#region IStackNavigation implementation
 
-		public Fragment RootFragment{ get ; set ;}
+		public Fragment RootFragment {
+			get ;
+			set ;
+		}
+
 
 		/// <summary>
 		/// Retourne au 1er fragment de la stack
@@ -43,7 +60,7 @@ namespace myAndroidApp
 		public void PopToRoot ()
 		{
 			this.FragmentManager.BeginTransaction ()
-				.Add (Resource.Id.frameLayout1, FragmentStack[0])
+				.Add (StackNabigationFrameLayout.Id, FragmentStack[0])
 				.Commit();
 		}
 
@@ -58,7 +75,7 @@ namespace myAndroidApp
 				FragmentStack.Remove (last);
 				this.FragmentManager.BeginTransaction ()
 					.SetCustomAnimations(Resource.Animation.slide_in_right, Resource.Animation.slide_out_left)
-					.Replace (Resource.Id.frameLayout1, FragmentStack [FragmentStack.Count - 1])
+					.Replace (StackNabigationFrameLayout.Id, FragmentStack [FragmentStack.Count - 1])
 					.Commit();
 			}
 			else
@@ -77,7 +94,7 @@ namespace myAndroidApp
 
 			this.FragmentManager.BeginTransaction ()
 				.SetCustomAnimations(Resource.Animation.slide_in_left, Resource.Animation.slide_out_right)
-				.Replace (Resource.Id.frameLayout1, FragmentStack [FragmentStack.Count - 1])
+				.Replace (StackNabigationFrameLayout.Id, FragmentStack [FragmentStack.Count - 1])
 				.Commit();
 
 		}

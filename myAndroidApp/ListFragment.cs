@@ -52,8 +52,9 @@ namespace myAndroidApp
 				PhotoFragment fr = new PhotoFragment();
 				fr.People = selected;
 
-				IStackNavigation nav = (IStackNavigation) this.Activity;
-				nav.Push(fr);
+				// recuperer l'activity pour lui demander de faire le push depuis le fragment
+				MainActivity nav = (MainActivity) this.Activity;
+				nav.NavigationFragment.Push(fr);
 			};
 
 			return view;

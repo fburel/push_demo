@@ -22,3 +22,4 @@ C:\Users\matelli\Documents\florian\push_demo\myAndroidApp\obj\Debug\res\anim\sli
 C:\Users\matelli\Documents\florian\push_demo\myAndroidApp\obj\Debug\res\anim\slide_out_right.xml
 C:\Users\matelli\Documents\florian\push_demo\myAndroidApp\obj\Debug\R.cs.flag
 C:\Users\matelli\Documents\florian\push_demo\myAndroidApp\obj\Debug\uploadflags.txt
+C:\Users\matelli\Documents\florian\push_demo\myAndroidApp\obj\Debug\res\layout\stacknavigationfragment.xml
