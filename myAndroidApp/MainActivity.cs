@@ -29,8 +29,6 @@ namespace myAndroidApp
 			if (NavigationFragment == null) {
 				NavigationFragment = new StackNavigationFragment ();
 				NavigationFragment.RootFragment = new ListFragment ();
-
-				PopToRoot ();
 			}
 		}
 
