@@ -14,7 +14,7 @@ namespace myAndroidApp
 	public class MainActivity : Activity, IStackNavigation
 	{
 
-		public List<Fragment> FragmentStack {
+		public IStackNavigation NavigationFragment {
 			get;
 			set;
 		}
@@ -26,70 +26,23 @@ namespace myAndroidApp
 			// Set our view from the "main" layout resource
 			SetContentView (Resource.Layout.Main);
 
-			if (FragmentStack == null) {
-				FragmentStack = new List<Fragment> ();
-				FragmentStack.Add (new ListFragment ());
+			if (NavigationFragment == null) {
+				NavigationFragment = new StackNavigationFragment ();
+				NavigationFragment.RootFragment = new ListFragment ();
 
 				PopToRoot ();
 			}
 		}
 
 		#region IStackNavigation implementation
-		/// <summary>
-		/// Retourne au 1er fragment de la stack
-		/// </summary>
-		public void PopToRoot ()
-		{
-			this.FragmentManager.BeginTransaction ()
-				.Add (Resource.Id.frameLayout1, FragmentStack[0])
-				.Commit();
-		}
-
-		/// <summary>
-		/// Retourne au fragment précédent
-		/// </summary>
-		public void Pop ()
-		{
-			if(this.FragmentStack.Count > 1)
-			{
-				Fragment last = FragmentStack [FragmentStack.Count - 1];
-				FragmentStack.Remove (last);
-				this.FragmentManager.BeginTransaction ()
-					.SetCustomAnimations(Resource.Animation.slide_in_right, Resource.Animation.slide_out_left)
-					.Replace (Resource.Id.frameLayout1, FragmentStack [FragmentStack.Count - 1])
-					.Commit();
-			}
-			else
-			{
-				throw new Exception ("Error during pop");
-			}
-		}
-
-		/// <summary>
-		/// Push the specified fragment.
-		/// </summary>
-		/// <param name="fragment">Fragment.</param>
-		public void Push (Fragment fragment)
-		{
-			this.FragmentStack.Add (fragment);
-
-			this.FragmentManager.BeginTransaction ()
-				.SetCustomAnimations(Resource.Animation.slide_in_left, Resource.Animation.slide_out_right)
-				.Replace (Resource.Id.frameLayout1, FragmentStack [FragmentStack.Count - 1])
-				.Commit();
-
-		}
 
 		#endregion
 
 		public override void OnBackPressed ()
 		{
-			if(this.FragmentStack.Count > 1)
-			{
-				Pop ();
-			}
-			else
-			{
+			try {
+				NavigationFragment.Pop();
+			} catch (Exception ex) {
 				base.OnBackPressed ();
 			}
 		}
