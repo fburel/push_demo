@@ -1,1 +1,1 @@
-/Users/fl0/Projects/myAndroidApp/myAndroidApp/bin/Debug/myAndroidApp.dll
+C:\Users\matelli\Documents\florian\push_demo\myAndroidApp\bin\Debug\myAndroidApp.dll

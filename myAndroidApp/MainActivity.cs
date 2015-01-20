@@ -55,6 +55,7 @@ namespace myAndroidApp
 				Fragment last = FragmentStack [FragmentStack.Count - 1];
 				FragmentStack.Remove (last);
 				this.FragmentManager.BeginTransaction ()
+					.SetCustomAnimations(Resource.Animation.slide_in_right, Resource.Animation.slide_out_left)
 					.Replace (Resource.Id.frameLayout1, FragmentStack [FragmentStack.Count - 1])
 					.Commit();
 			}
@@ -73,6 +74,7 @@ namespace myAndroidApp
 			this.FragmentStack.Add (fragment);
 
 			this.FragmentManager.BeginTransaction ()
+				.SetCustomAnimations(Resource.Animation.slide_in_left, Resource.Animation.slide_out_right)
 				.Replace (Resource.Id.frameLayout1, FragmentStack [FragmentStack.Count - 1])
 				.Commit();
 

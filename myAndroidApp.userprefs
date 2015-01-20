@@ -1,15 +1,12 @@
-﻿<Properties StartupItem="myAndroidApp/myAndroidApp.csproj">
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Android.Nexus 4 (KitKat)" />
-  <MonoDevelop.Ide.Workbench>
-    <Pads>
-      <Pad Id="ProjectPad">
-        <State expanded="True">
-          <Node name="myAndroidApp" expanded="True">
-            <Node name="IStackNavigation.cs" selected="True" />
-          </Node>
-        </State>
-      </Pad>
-    </Pads>
+﻿<Properties StartupItem="myAndroidApp\myAndroidApp.csproj">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Android.192.168.56.101:5555" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="myAndroidApp\Resources\anim\slide_out_right.xml">
+    <Files>
+      <File FileName="myAndroidApp\Resources\anim\slide_in_left.xml" Line="7" Column="7" />
+      <File FileName="myAndroidApp\Resources\anim\slide_in_right.xml" Line="7" Column="7" />
+      <File FileName="myAndroidApp\Resources\anim\slide_out_left.xml" Line="9" Column="9" />
+      <File FileName="myAndroidApp\Resources\anim\slide_out_right.xml" Line="7" Column="7" />
+    </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
