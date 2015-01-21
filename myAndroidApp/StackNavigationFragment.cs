@@ -36,7 +36,7 @@ namespace myAndroidApp
 
 			if (FragmentStack == null) {
 				FragmentStack = new List<Fragment> ();
-				FragmentStack.Add (new ListFragment ());
+				FragmentStack.Add (RootFragment);
 				PopToRoot ();
 			}
 
